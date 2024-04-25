@@ -1,9 +1,42 @@
-# Doodle-Classification
-Classification of drawing based on drawing strokes using RNN(Deep Learning Model)
+# Doodle Classification
 
-first install all pip modules from train.py
+**Real-time classification of user-drawn doodles!**
 
-there is one array "drawing_lable" which contains label name of doodle classes on which we want to train our model,so add label accordingly
+This project classifies user-drawn doodles in real-time using a Keras model trained on the Google Doodle dataset. Users can draw on a web interface built with p5.js and HTML, and the Flask framework connects the user interface to the Python backend for classification.
 
-train.py will generat model.pkl if you want to test that model please add that model.pkl file into deployed_app folder and in app.py 
-which is flask server modify your labels accordingly, and bingo!!!! you are good to GO!
+### Demo:
+
+![Demo](./resources/doodle_demo.gif)
+
+### Setup Instructions:
+
+##### Install Dependencies:
+
+```
+pip install -r requirements.txt
+```
+
+##### Modify Labels:
+
+The project uses an array named `drawing_lable` in the training script `train.py` to define doodle class labels. Update this array with the specific categories you want your model to classify.
+
+##### Train the Model:
+
+If you want to train a new model, run the training script:
+
+```
+python train.py
+```
+
+**Modal Parameters:**
+![Modal Schema](./resources/model.png)
+
+**Accuracy vs. Loss Graphs:**
+![Accuracy graph](./resources/acc.png)
+
+![Loss graph](./resources/loss.png)
+
+##### Deploy the Model:
+
+- **Copy the Model:** If you trained a new model, copy the model.pkl file from the project directory to the deployed_app folder.
+- **Modify Labels (Flask):** run `app.py` file to start the flask app on localhost:5000.
