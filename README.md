@@ -8,6 +8,14 @@ This project classifies user-drawn doodles in real-time using a Keras model trai
 
 ![Demo](./resources/doodle_demo.gif)
 
+
+### Highlights:
+
+- **Keras Model:** Trained to classify doodles into 5 categories.
+- **Real-time Classification:** Users draw, and the model predicts instantly.
+- **User Interface (p5.js):** Enables interactive drawing experience.
+- **92% Accuracy:** Achieved through training and optimization.
+
 ### Setup Instructions:
 
 ##### Install Dependencies:
@@ -29,9 +37,11 @@ python train.py
 ```
 
 **Modal Parameters:**
+
 ![Modal Schema](./resources/model.png)
 
 **Accuracy vs. Loss Graphs:**
+
 ![Accuracy graph](./resources/acc.png)
 
 ![Loss graph](./resources/loss.png)
