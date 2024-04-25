@@ -1,0 +1,8 @@
+numpy
+pandas
+pillow
+quickdraw
+tensorflow
+keras
+flask
+scikit-learn
