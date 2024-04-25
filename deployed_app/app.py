@@ -1,19 +1,19 @@
+import pickle
+
+import keras
 import numpy as np
 import pandas as pd
-from PIL import Image, ImageDraw
-from quickdraw import QuickDrawData
 import tensorflow as tf
-import keras
+from flask import Flask, jsonify, render_template, request
 from keras.models import Sequential
-from keras.layers import Input, Dense,Conv1D,MaxPooling1D,LSTM
-from sklearn.preprocessing import MinMaxScaler
-from keras.utils import to_categorical
-from keras.utils.data_utils import Sequence
-from keras.utils.np_utils import to_categorical   
+# from keras.layers import LSTM, Conv1D, Dense, Input, MaxPooling1D
+from keras.utils import Sequence, to_categorical
+from PIL import Image, ImageDraw
+# from quickdraw import QuickDrawData
 from sklearn import preprocessing
-import pickle
-from flask import Flask, render_template, request,jsonify
+from sklearn.preprocessing import MinMaxScaler
 
+# from tensorflow.keras.models import Sequential
 
 app = Flask(__name__,template_folder='pages')
 
@@ -54,7 +54,7 @@ def normalize_data(x,le):
 
 
 model  =  pickle.load(open('model.pkl', 'rb'))
-graph = tf.get_default_graph()
+# graph = tf.compat.v1.get_default_graph()
 ans = []
 
 @app.route('/')
@@ -67,18 +67,18 @@ def predict_activity():
     content = request.get_json()    
     content = content['data']    
     # print(content)
-    x = normalize_data(content,model.le)  
+    x = normalize_data(content,model.le)      
     x = np.array(x)
     # print(x)
-    with graph.as_default():
-        pred = model.model.predict(x)
-        print(pred[0])
-        # pred = np.mean(pred[0], axis=0)
-        # print(pred)        
-        result = np.where(pred[0] == np.amax(pred[0]))
-        print(result)
-        ans = model.le.inverse_transform(result)
-        print(ans[0])    
+    # with graph.as_default():
+    pred = model.model.predict(x)
+    print(pred[0])
+    # pred = np.mean(pred[0], axis=0)
+    # print(pred)        
+    result = np.where(pred[0] == np.amax(pred[0]))
+    print(result)
+    ans = model.le.inverse_transform(result)
+    print(ans[0])    
     return jsonify({'ans': ans[0]})
 
 if __name__ == '__main__':

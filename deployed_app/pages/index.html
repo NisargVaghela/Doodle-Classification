@@ -1,63 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-	<style>
+<style>
 	#snackbar {
-	  visibility: hidden;
-	  min-width: 250px;
-	  margin-left: -125px;
-	  background-color: #333;
-	  color: #fff;
-	  text-align: center;
-	  border-radius: 2px;
-	  padding: 16px;
-	  position: fixed;
-	  z-index: 1;
-	  left: 50%;
-	  bottom: 30px;
-	  font-size: 17px;
+		visibility: hidden;
+		min-width: 250px;
+		margin-left: -125px;
+		background-color: #333;
+		color: #fff;
+		text-align: center;
+		border-radius: 2px;
+		padding: 16px;
+		position: fixed;
+		z-index: 1;
+		left: 50%;
+		bottom: 30px;
+		font-size: 17px;
 	}
 
 	#snackbar.show {
-	  visibility: visible;
-	  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
-	  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+		visibility: visible;
+		-webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+		animation: fadein 0.5s, fadeout 0.5s 2.5s;
 	}
 
 	@-webkit-keyframes fadein {
-	  from {bottom: 0; opacity: 0;} 
-	  to {bottom: 30px; opacity: 1;}
+		from {
+			bottom: 0;
+			opacity: 0;
+		}
+
+		to {
+			bottom: 30px;
+			opacity: 1;
+		}
 	}
 
 	@keyframes fadein {
-	  from {bottom: 0; opacity: 0;}
-	  to {bottom: 30px; opacity: 1;}
+		from {
+			bottom: 0;
+			opacity: 0;
+		}
+
+		to {
+			bottom: 30px;
+			opacity: 1;
+		}
 	}
 
 	@-webkit-keyframes fadeout {
-	  from {bottom: 30px; opacity: 1;} 
-	  to {bottom: 0; opacity: 0;}
+		from {
+			bottom: 30px;
+			opacity: 1;
+		}
+
+		to {
+			bottom: 0;
+			opacity: 0;
+		}
 	}
 
 	@keyframes fadeout {
-	  from {bottom: 30px; opacity: 1;}
-	  to {bottom: 0; opacity: 0;}
+		from {
+			bottom: 30px;
+			opacity: 1;
+		}
+
+		to {
+			bottom: 0;
+			opacity: 0;
+		}
 	}
-	</style>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.dom.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.1.0/dist/tf.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <title>DL project</title>
-  </head>
-  <body class="w3-container w3-blue-gray w3-center">
-    <script src="static/sketch.js"></script>
-    <br>  
-  <button class="w3-btn w3-green w3-round" id="clear" onclick="reset()">clear</button>  
-  <div id="snackbar">Some text some message..</div>
-  </body>
+</style>
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.dom.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.1.0/dist/tf.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<title>Doodle Classification</title>
+</head>
+
+<body class="w3-container w3-blue-gray w3-center">
+	<script src="static/sketch.js"></script>
+	<button class="w3-btn w3-green w3-round" id="clear" style="margin: 6px;" onclick="reset()">clear</button>
+	<br>
+	<div id="snackbar">Some text some message..</div>
+</body>
+
 </html>
